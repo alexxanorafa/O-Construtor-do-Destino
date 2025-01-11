@@ -33,12 +33,41 @@ body, h1, p, div {
     margin-top: 10px;
   }
   
-  .menu-link {
-    color: #f1c40f;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.2em;
-  }
+  .menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      padding: 10px 0;
+      width: 100%;
+      position: relative;
+      flex-wrap: wrap;
+    }
+
+    .menu-item {
+      background-color: #ecf0f1;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 120px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #2c3e50;
+      font-size: 0.9em;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      background-color: #bdc3c7;
+      color: #fff;
+    }
   
   /* Botões */
   .styled-btn {
