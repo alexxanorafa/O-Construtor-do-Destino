@@ -10,11 +10,32 @@
   <header>
     <h1>O Construtor do Destino</h1>
     <nav>
-      <a href="#" class="menu-link">Início</a>
-      <a href="#" class="menu-link">Cartas</a>
-      <a href="#" class="menu-link">Contato</a>
+      <a href="https://alexxanorafa.github.io/Tempo_e_Sonhos/" class="menu-item">Tempo e Sonhos</a>
+      <a href="https://alexxanorafa.github.io/posicionamentodosastros/" class="menu-item">Mapa Astral</a>
+      <a href="https://alexxanorafa.github.io/TarodeMarselha/" class="menu-item">Tarô de Marselha</a>
+      <a href="https://alexxanorafa.github.io/Runas-do-Destino/" class="menu-item">Runas do Destino</a>
     </nav>
   </header>
+  .menu {
+  display: flex;
+  flex-direction: row;  /* Itens dispostos horizontalmente por padrão */
+  gap: 10px;  /* Espaçamento padrão */
+}
+
+/* Para telas pequenas (máximo 768px) */
+@media (max-width: 768px) {
+  .menu {
+    gap: 15px;  /* Aumenta o espaçamento nas telas médias */
+  }
+}
+
+/* Para telas menores que 480px (smartphones pequenos) */
+@media (max-width: 480px) {
+  .menu {
+    flex-direction: row;  /* Disposição vertical para melhor uso do espaço */
+    gap: 5px;  /* Reduz o espaçamento em telas menores */
+  }
+}
 
   <main>
     <div class="game-container">
@@ -30,6 +51,9 @@
       </div>
     </div>
   </main>
+   <footer>
+    <p>© 2025 O Construtor do Destino. De Alexandre Ventura</p>
+  </footer>
 
   <script src="scripts.js"></script>
 </body>
