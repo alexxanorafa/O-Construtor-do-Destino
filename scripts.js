@@ -100,10 +100,89 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Rei de Paus', meaning: 'Visão, liderança, inspiração.' },
       ];
 
-    // Questões do Quiz
+        // Questões do Quiz
     const quizQuestions = [
-        { question: 'Qual caminho deseja seguir?', options: ['Caminho da Sabedoria', 'Caminho da Ação', 'Caminho da Intuição'], correctAnswer: 'Caminho da Sabedoria' },
-        { question: 'Qual é o seu maior desejo?', options: ['Poder', 'Amor', 'Sabedoria'], correctAnswer: 'Amor' },
+        { question: 'Qual novo começo está preparado para abraçar?', options: ['Uma nova jornada', 'Uma mudança de carreira', 'Explorar um novo relacionamento'], correctAnswer: 'Uma nova jornada' }, // O Louco
+    { question: 'Como lida com as dificuldades na sua vida?', options: ['Ação imediata e foco', 'Pondero as opções com calma', 'Deixo que a situação se resolva por si mesma'], correctAnswer: 'Ação imediata e foco' }, // O Mago
+    { question: 'Como costuma tomar decisões importantes?', options: ['Utilizo a lógica e sabedoria', 'Confio na intuição', 'Sigo as convenções e normas sociais'], correctAnswer: 'Confio na intuição' }, // A Sacerdotisa
+    { question: 'O que mais ressoa consigo neste momento?', options: ['Cuidar dos outros', 'Criar algo novo', 'Buscar conforto e estabilidade'], correctAnswer: 'Criar algo novo' }, // A Imperatriz
+    { question: 'Qual é a qualidade que mais valoriza numa pessoa?', options: ['Estrutura e disciplina', 'Liberdade e independência', 'Sabedoria e compaixão'], correctAnswer: 'Estrutura e disciplina' }, // O Imperador
+    { question: 'Onde encontra maior consolo nos momentos difíceis?', options: ['Na minha fé', 'Em conversas com pessoas queridas', 'No autoconhecimento e meditação'], correctAnswer: 'Na minha fé' }, // O Papa
+    { question: 'Como encara as escolhas na sua vida?', options: ['Com o coração aberto', 'Pesando os prós e contras', 'Seguindo o meu instinto'], correctAnswer: 'Com o coração aberto' }, // Os Enamorados
+    { question: 'Quando enfrenta um desafio, o que faz?', options: ['Persigo a vitória com determinação', 'Faço uma pausa para reflectir', 'Procuro ajuda de outros'], correctAnswer: 'Persigo a vitória com determinação' }, // O Carro
+    { question: 'Quando se depara com uma decisão difícil, o que procura?', options: ['Equilíbrio e justiça', 'Resolver o problema de maneira justa', 'Sigo o que o meu coração manda'], correctAnswer: 'Equilíbrio e justiça' }, // A Justiça
+    { question: 'Sente-se mais confortável em qual situação?', options: ['Sozinho com os meus pensamentos', 'Em meio a uma multidão', 'Em actividades externas e dinâmicas'], correctAnswer: 'Sozinho com os meus pensamentos' }, // O Eremita
+    { question: 'Como lida com mudanças na sua vida?', options: ['Aceito o fluxo da vida', 'Sinto-me apreensivo, mas sei que é necessário', 'Tento evitar mudanças ao máximo'], correctAnswer: 'Aceito o fluxo da vida' }, // A Roda da Fortuna
+    { question: 'Como lida com as dificuldades emocionais?', options: ['Enfrento-as de cabeça erguida', 'Procuro forças interiores e paciência', 'Procuro apoio externo'], correctAnswer: 'Procuro forças interiores e paciência' }, // A Força
+    { question: 'Em momentos de adversidade, o que faz?', options: ['Encaro com coragem', 'Reflito sobre o que posso aprender com a situação', 'Evito me envolver em problemas'], correctAnswer: 'Encaro com coragem' }, // O Enforcado
+    { question: 'Qual dessas transformações está a viver?', options: ['Mudança radical de vida', 'Nova forma de ver o mundo', 'Uma limpeza do passado'], correctAnswer: 'Mudança radical de vida' }, // A Morte
+    { question: 'Como busca equilíbrio na sua vida?', options: ['Buscando harmonia em todas as áreas', 'Com a prática da paciência', 'Ajusto-me conforme as situações'], correctAnswer: 'Buscando harmonia em todas as áreas' }, // A Temperança
+    { question: 'Qual é a sua maior tentação?', options: ['O medo de perder o controlo', 'O apego a bens materiais', 'A ilusão do prazer momentâneo'], correctAnswer: 'O apego a bens materiais' }, // O Diabo
+    { question: 'Como lida com situações inesperadas?', options: ['Encaro-as com resiliência', 'Procuro encontrar uma solução rapidamente', 'Procuro um novo caminho'], correctAnswer: 'Encaro-as com resiliência' }, // A Torre
+    { question: 'Como lida com o desconhecido?', options: ['Com confiança na intuição', 'Acredito que a verdade sempre surgirá', 'Desconfio e questiono tudo'], correctAnswer: 'Com confiança na intuição' }, // A Lua
+    { question: 'Quando se sente mais pleno?', options: ['Quando estou em harmonia com os outros', 'Quando conquisto algo significativo', 'Quando estou imerso no presente'], correctAnswer: 'Quando estou imerso no presente' }, // O Sol
+    { question: 'Acredita em segundas oportunidades?', options: ['Sim, é uma oportunidade de aprendizagem', 'Não, o que se perdeu nunca se recupera', 'Depende da situação'], correctAnswer: 'Sim, é uma oportunidade de aprendizagem' }, // O Julgamento
+    { question: 'O que sente que está finalmente a completar na sua vida?', options: ['Um ciclo de crescimento pessoal', 'Uma busca por estabilidade', 'Uma jornada de autodescoberta'], correctAnswer: 'Um ciclo de crescimento pessoal' }, // O Mundo
+
+    // Arcanos Menores - Ouros
+    { question: 'Como lida com a prosperidade?', options: ['Com gratidão e equilíbrio', 'Aproveito ao máximo cada momento', 'Procuro sempre mais'], correctAnswer: 'Com gratidão e equilíbrio' }, // Ás de Ouros
+    { question: 'Como equilibra a sua vida?', options: ['Com flexibilidade', 'Com estrutura rígida', 'Tentando controlar tudo'], correctAnswer: 'Com flexibilidade' }, // Dois de Ouros
+    { question: 'O que valoriza mais num grupo de trabalho?', options: ['Harmonia e colaboração', 'Trabalho árduo e dedicação', 'Criatividade e inovação'], correctAnswer: 'Harmonia e colaboração' }, // Três de Ouros
+    { question: 'Quando sente que tem controlo sobre a sua vida?', options: ['Quando estou financeiramente estável', 'Quando alcanço os meus objectivos', 'Quando mantenho a minha paz interior'], correctAnswer: 'Quando estou financeiramente estável' }, // Quatro de Ouros
+    { question: 'Como lida com perdas materiais?', options: ['Com aceitação e superação', 'Tentando recuperar o que perdi', 'Procurando alternativas mais seguras'], correctAnswer: 'Com aceitação e superação' }, // Cinco de Ouros
+    { question: 'Como partilha o que tem?', options: ['Com generosidade', 'Com cautela', 'Com reservas'], correctAnswer: 'Com generosidade' }, // Seis de Ouros
+    { question: 'Como vê os resultados do seu trabalho?', options: ['Acredito que a paciência é a chave', 'Aproveito quando chegam', 'Preocupo-me em manter o controlo'], correctAnswer: 'Acredito que a paciência é a chave' }, // Sete de Ouros
+    { question: 'O que procura ao aprimorar-se?', options: ['Novas habilidades e competências', 'Autossuficiência', 'Reconhecimento dos outros'], correctAnswer: 'Novas habilidades e competências' }, // Oito de Ouros
+    { question: 'O que significa para si uma vida bem-sucedida?', options: ['Independência financeira', 'Liberdade e segurança', 'Poder pessoal'], correctAnswer: 'Independência financeira' }, // Nove de Ouros
+    { question: 'Como vê o legado que deixa?', options: ['Como uma herança financeira', 'Como algo que impacta as gerações futuras', 'Como uma contribuição espiritual'], correctAnswer: 'Como algo que impacta as gerações futuras' }, // Dez de Ouros
+    { question: 'Qual é o seu principal foco na vida?', options: ['Oportunidades de crescimento pessoal', 'Estabilidade financeira', 'Reconhecimento social'], correctAnswer: 'Oportunidades de crescimento pessoal' }, // Pajem de Ouros
+    { question: 'Como encara o seu trabalho?', options: ['Com responsabilidade e disciplina', 'Com dedicação e esforço', 'Com uma abordagem prática e metódica'], correctAnswer: 'Com responsabilidade e disciplina' }, // Cavaleiro de Ouros
+    { question: 'O que mais valoriza nas pessoas ao seu redor?', options: ['Sustentabilidade e pragmatismo', 'Criatividade e inovação', 'Lealdade e compromisso'], correctAnswer: 'Sustentabilidade e pragmatismo' }, // Rainha de Ouros
+    { question: 'Qual é o seu maior desejo em relação à riqueza?', options: ['Estabilidade e segurança', 'Poder e influência', 'Conforto e luxo'], correctAnswer: 'Estabilidade e segurança' }, // Rei de Ouros
+
+    // Arcanos Menores - Espadas
+    { question: 'Como lida com a clareza em sua vida?', options: ['Busco a verdade em todas as situações', 'Utilizo a razão para tomar decisões', 'Confio na intuição para esclarecer as situações'], correctAnswer: 'Busco a verdade em todas as situações' }, // Ás de Espadas
+    { question: 'Quando se depara com um desafio, qual é a sua primeira reação?', options: ['Enfrento-o com lógica e raciocínio', 'Penso na melhor estratégia', 'Tento compreender todas as perspectivas antes de agir'], correctAnswer: 'Enfrento-o com lógica e raciocínio' }, // Dois de Espadas
+    { question: 'Quando sente que está a alcançar a verdade?', options: ['Quando a situação se resolve de forma justa', 'Quando consigo comunicar de forma clara', 'Quando a razão prevalece sobre as emoções'], correctAnswer: 'Quando a razão prevalece sobre as emoções' }, // Três de Espadas
+    { question: 'Como lida com a dor ou a tristeza?', options: ['Com coragem e determinação', 'Refletindo sobre o que aprendi', 'Com o apoio de outros'], correctAnswer: 'Com coragem e determinação' }, // Quatro de Espadas
+    { question: 'Quando enfrenta um desafio mental, o que faz?', options: ['Procuro respostas claras e diretas', 'Analiso todas as possibilidades', 'Tento encontrar uma solução rápida e prática'], correctAnswer: 'Analiso todas as possibilidades' }, // Cinco de Espadas
+    { question: 'O que mais aprecia em uma conversa?', options: ['A troca de ideias', 'A honestidade e clareza', 'A diplomacia e equilíbrio'], correctAnswer: 'A honestidade e clareza' }, // Seis de Espadas
+    { question: 'Como reage perante um conflito?', options: ['Procuro uma solução rápida', 'Enfrento a situação de frente', 'Tento entender as razões dos outros'], correctAnswer: 'Tento entender as razões dos outros' }, // Sete de Espadas
+    { question: 'Quando se vê à beira de um grande desafio mental, o que faz?', options: ['Procuro estratégias alternativas', 'Busco clareza antes de agir', 'Dou um passo atrás para refletir'], correctAnswer: 'Busco clareza antes de agir' }, // Oito de Espadas
+    { question: 'Qual a sua reação quando se sente confuso ou preso?', options: ['Procuro uma forma de escapar da situação', 'Racionalizo para encontrar uma solução', 'Reflito profundamente antes de agir'], correctAnswer: 'Racionalizo para encontrar uma solução' }, // Nove de Espadas
+    { question: 'Como lida com a verdade quando ela chega até si?', options: ['Com aceitação e clareza', 'Com franqueza e resolução', 'Com frustração e resistência'], correctAnswer: 'Com aceitação e clareza' }, // Dez de Espadas
+    // Arcanos Menores - Copas
+    { question: 'Quando um novo amor surge na sua vida, como lida com isso?', options: ['Com entusiasmo e abertura', 'Com cautela e reflexão', 'Com medo e receio'], correctAnswer: 'Com entusiasmo e abertura' }, // Ás de Copas
+    { question: 'Como se sente quando partilha momentos importantes com os outros?', options: ['Com alegria e harmonia', 'Com prazer e gratidão', 'Com desconforto e insegurança'], correctAnswer: 'Com alegria e harmonia' }, // Dois de Copas
+    { question: 'Como celebra as boas notícias ou vitórias?', options: ['Com amigos e família', 'Com momentos de introspecção', 'Com uma grande festa'], correctAnswer: 'Com amigos e família' }, // Três de Copas
+    { question: 'Quando sente que está a perder algo importante, o que faz?', options: ['Procuro compreender as minhas emoções', 'Reflito sobre o que aprendi com a perda', 'Evito pensar na situação'], correctAnswer: 'Procuro compreender as minhas emoções' }, // Quatro de Copas
+    { question: 'Quando se sente desiludido, como lida com isso?', options: ['Foco na recuperação emocional', 'Busco maneiras de seguir em frente', 'Procuro ajudar os outros a se sentirem melhor'], correctAnswer: 'Foco na recuperação emocional' }, // Cinco de Copas
+    { question: 'Quando se lembra do passado, o que mais valoriza?', options: ['As memórias de infância', 'Os momentos de aprendizado', 'Os momentos de felicidade genuína'], correctAnswer: 'Os momentos de felicidade genuína' }, // Seis de Copas
+    { question: 'Como lida com muitas opções na vida?', options: ['Avalio cuidadosamente cada uma', 'Deixo que a intuição me guie', 'Tento encontrar a opção mais segura'], correctAnswer: 'Avalio cuidadosamente cada uma' }, // Sete de Copas
+    { question: 'Quando se vê à beira de uma mudança importante, o que faz?', options: ['Procuro novos começos com coragem', 'Reflito sobre o que deixo para trás', 'Procuro estabilidade antes de seguir em frente'], correctAnswer: 'Procuro novos começos com coragem' }, // Oito de Copas
+    { question: 'Como se sente quando atinge um grande objetivo emocional?', options: ['Com contentamento e gratidão', 'Com um profundo sentido de realização', 'Com um sentimento de plenitude e paz'], correctAnswer: 'Com contentamento e gratidão' }, // Nove de Copas
+    { question: 'O que mais deseja para a sua família?', options: ['Harmonia e felicidade', 'Segurança e estabilidade', 'Sucesso e reconhecimento'], correctAnswer: 'Harmonia e felicidade' }, // Dez de Copas
+    { question: 'Quando lida com questões emocionais, o que mais valoriza?', options: ['A intuição', 'A compaixão', 'A razão'], correctAnswer: 'A intuição' }, // Pajem de Copas
+    { question: 'Como vê o amor em sua vida?', options: ['Com idealismo e romantismo', 'Com paixão e dedicação', 'Com um senso de equilíbrio e harmonia'], correctAnswer: 'Com paixão e dedicação' }, // Cavaleiro de Copas
+    { question: 'Como lida com os sentimentos intensos?', options: ['Com compreensão e empatia', 'Com reserva e introspecção', 'Com expressão e abertura'], correctAnswer: 'Com compreensão e empatia' }, // Rainha de Copas
+    { question: 'Como se vê em termos emocionais?', options: ['Equilibrado e compassivo', 'Confiante e forte emocionalmente', 'Sensível e introspectivo'], correctAnswer: 'Equilibrado e compassivo' }, // Rei de Copas
+
+    // Arcanos Menores - Paus
+    { question: 'O que o inspira a dar o primeiro passo em direção aos seus objetivos?', options: ['A paixão e a motivação', 'A ideia de novas possibilidades', 'A necessidade de resultados imediatos'], correctAnswer: 'A paixão e a motivação' }, // Ás de Paus
+    { question: 'Como se sente quando planeja um novo projeto?', options: ['Entusiasmado e cheio de ideias', 'Cauteloso e estratégico', 'Desconfiado e inseguro'], correctAnswer: 'Entusiasmado e cheio de ideias' }, // Dois de Paus
+    { question: 'O que o motiva quando procura expandir seus horizontes?', options: ['O desejo de novas experiências', 'A busca pelo crescimento pessoal', 'O desejo de reconhecimento social'], correctAnswer: 'O desejo de novas experiências' }, // Três de Paus
+    { question: 'Quando alcança um objetivo importante, como se sente?', options: ['Com grande alegria e celebração', 'Com uma sensação de dever cumprido', 'Com uma mistura de cansaço e satisfação'], correctAnswer: 'Com grande alegria e celebração' }, // Quatro de Paus
+    { question: 'Como lida com a competição em sua vida?', options: ['Com determinação e confiança', 'Com cautela e respeito pelos outros', 'Com frustração e desejo de superar os outros'], correctAnswer: 'Com determinação e confiança' }, // Cinco de Paus
+    { question: 'Como reage quando conquista algo importante?', options: ['Com orgulho e celebração', 'Com humildade e reflexão', 'Com um desejo de alcançar mais'], correctAnswer: 'Com orgulho e celebração' }, // Seis de Paus
+    { question: 'Quando é confrontado com um desafio, como reage?', options: ['Com resiliência e perseverança', 'Com estratégia e inteligência', 'Com frustração e cansaço'], correctAnswer: 'Com resiliência e perseverança' }, // Sete de Paus
+    { question: 'Quando as coisas estão a acontecer rapidamente, o que faz?', options: ['Aproveito a energia do momento', 'Procuro manter o controlo e a calma', 'Adapto-me rapidamente à situação'], correctAnswer: 'Aproveito a energia do momento' }, // Oito de Paus
+    { question: 'Como lida com os desafios que surgem constantemente?', options: ['Com paciência e dedicação', 'Com confiança nas minhas habilidades', 'Com adaptação e flexibilidade'], correctAnswer: 'Com paciência e dedicação' }, // Nove de Paus
+    { question: 'Quando sente que tem demasiado em mãos, o que faz?', options: ['Divido responsabilidades e descanso', 'Enfrento o desafio com força de vontade', 'Faço uma pausa e reorganizo as minhas prioridades'], correctAnswer: 'Faço uma pausa e reorganizo as minhas prioridades' }, // Dez de Paus
+    { question: 'Quando se envolve em algo novo, o que procura?', options: ['Uma grande oportunidade', 'A possibilidade de crescimento pessoal', 'Uma aventura emocionante'], correctAnswer: 'Uma grande oportunidade' }, // Pajem de Paus
+    { question: 'O que mais o motiva a agir?', options: ['A paixão pelo que faço', 'O desejo de alcançar algo grande', 'A necessidade de liderança e poder'], correctAnswer: 'A paixão pelo que faço' }, // Cavaleiro de Paus
+    { question: 'Como lida com as suas responsabilidades?', options: ['Com coragem e compromisso', 'Com criatividade e inovação', 'Com pragmatismo e eficácia'], correctAnswer: 'Com coragem e compromisso' }, // Rainha de Paus
+    { question: 'Quando se depara com uma nova ideia, o que faz?', options: ['Procuro aplicá-la de imediato', 'Exploro as possíveis consequências', 'Avalio o que outros pensam sobre ela'], correctAnswer: 'Procuro aplicá-la de imediato' }, // Rei de Paus
+    
         // Mais questões podem ser adicionadas aqui
     ];
 
