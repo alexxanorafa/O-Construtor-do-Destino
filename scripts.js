@@ -1,11 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Referências aos elementos DOM
     const gameGrid = document.getElementById('game-grid');
     const tarotModal = document.getElementById('tarot-modal');
     const tarotCardName = document.getElementById('tarot-card-name');
     const tarotCardMeaning = document.getElementById('tarot-card-meaning');
     const closeTarotBtn = document.getElementById('close-tarot-btn');
     const startGameButton = document.getElementById('start-game-btn');
-  
+    const quizModal = document.getElementById('quiz-modal');
+    const closeQuizBtn = document.getElementById('close-quiz-btn');
+    const quizQuestion = document.getElementById('quiz-question');
+    const option1 = document.getElementById('option-1');
+    const option2 = document.getElementById('option-2');
+    const option3 = document.getElementById('option-3');
+
+    // Cartas de Tarô (substitua com as suas 78 cartas reais)
     const tarotCards = [
         // Arcanos Maiores
         { name: 'O Louco', meaning: 'Novos começos, espontaneidade, liberdade.' },
@@ -91,42 +99,102 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Rainha de Paus', meaning: 'Coragem, criatividade, determinação.' },
         { name: 'Rei de Paus', meaning: 'Visão, liderança, inspiração.' },
       ];
-  
+
+    // Questões do Quiz
+    const quizQuestions = [
+        { question: 'Qual caminho deseja seguir?', options: ['Caminho da Sabedoria', 'Caminho da Ação', 'Caminho da Intuição'], correctAnswer: 'Caminho da Sabedoria' },
+        { question: 'Qual é o seu maior desejo?', options: ['Poder', 'Amor', 'Sabedoria'], correctAnswer: 'Amor' },
+        // Mais questões podem ser adicionadas aqui
+    ];
+
+    let currentQuestionIndex = 0;  // Índice da questão atual
+
+    // Inicializa o tabuleiro do jogo
     function initGameGrid() {
-      gameGrid.innerHTML = '';
-      for (let i = 0; i < 100; i++) {
-        const cell = document.createElement('div');
-        cell.classList.add('game-cell');
-        cell.addEventListener('click', () => revealReward(i));
-        gameGrid.appendChild(cell);
-      }
+        gameGrid.innerHTML = '';  // Limpa o tabuleiro
+        for (let i = 0; i < 100; i++) {
+            const cell = document.createElement('div');
+            cell.classList.add('game-cell');
+            cell.addEventListener('click', () => revealReward(i));
+            gameGrid.appendChild(cell);
+        }
     }
-  
+
+    // Revela uma recompensa ao clicar na célula do tabuleiro
     function revealReward(index) {
-      const reward = Math.random() > 0.5 ? 'block' : 'tarot';
-      const cell = gameGrid.children[index];
-  
-      if (reward === 'block') {
-        cell.style.background = '#6a82fb';
-      } else {
-        showRandomTarotCard();
-      }
-      cell.style.pointerEvents = 'none';
+        const reward = Math.random() > 0.5 ? 'block' : 'tarot';
+        const cell = gameGrid.children[index];
+
+        if (reward === 'block') {
+            cell.style.background = '#6a82fb';  // Cor para bloqueio
+        } else {
+            showRandomTarotCard();  // Mostra uma carta de tarô
+        }
+        cell.style.pointerEvents = 'none';  // Desabilita a célula após o clique
     }
-  
+
+    // Mostra uma carta de tarô aleatória
     function showRandomTarotCard() {
-      const randomCard = tarotCards[Math.floor(Math.random() * tarotCards.length)];
-      tarotCardName.textContent = randomCard.name;
-      tarotCardMeaning.textContent = randomCard.meaning;
-      tarotModal.classList.remove('hidden');
+        const randomCard = tarotCards[Math.floor(Math.random() * tarotCards.length)];
+        tarotCardName.textContent = randomCard.name;
+        tarotCardMeaning.textContent = randomCard.meaning;
+        tarotModal.classList.remove('hidden');
     }
-  
+
+    // Exibe uma pergunta de quiz
+    function showQuizQuestion() {
+        const question = quizQuestions[currentQuestionIndex];
+        quizQuestion.textContent = question.question;
+        option1.textContent = question.options[0];
+        option2.textContent = question.options[1];
+        option3.textContent = question.options[2];
+
+        // Adiciona os eventos de clique para as opções
+        option1.onclick = () => handleAnswer(option1.textContent);
+        option2.onclick = () => handleAnswer(option2.textContent);
+        option3.onclick = () => handleAnswer(option3.textContent);
+
+        quizModal.classList.remove('hidden');
+    }
+
+    // Lida com a resposta ao quiz
+    function handleAnswer(selectedAnswer) {
+        const question = quizQuestions[currentQuestionIndex];
+
+        // Verifica se a resposta está correta
+        if (selectedAnswer === question.correctAnswer) {
+            alert('Resposta correta!');
+        } else {
+            alert('Resposta incorreta!');
+        }
+
+        // Avança para a próxima pergunta
+        currentQuestionIndex++;
+
+        if (currentQuestionIndex < quizQuestions.length) {
+            setTimeout(showQuizQuestion, 1000);  // Aguarda 1 segundo antes de mostrar a próxima pergunta
+        } else {
+            alert('Você terminou o quiz!');
+            quizModal.classList.add('hidden');  // Fecha o modal do quiz
+        }
+    }
+
+    // Fechar o modal de tarô
     closeTarotBtn.addEventListener('click', () => {
-      tarotModal.classList.add('hidden');
+        tarotModal.classList.add('hidden');
     });
-  
+
+    // Fechar o modal de quiz
+    closeQuizBtn.addEventListener('click', () => {
+        quizModal.classList.add('hidden');
+    });
+
+    // Iniciar o jogo
     startGameButton.addEventListener('click', initGameGrid);
-  
+
+    // Inicializa o tabuleiro
     initGameGrid();
-  });
-  
+
+    // Mostrar o quiz após 5 segundos (exemplo)
+    setTimeout(showQuizQuestion, 5000); // Exemplo: mostra o quiz após 5 segundos
+});
