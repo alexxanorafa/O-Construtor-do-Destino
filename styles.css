@@ -1,5 +1,5 @@
 /* Reset básico */
-body, h1, p, div {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -66,23 +66,25 @@ nav {
     grid-template-columns: repeat(10, 1fr);
     gap: 10px;
     padding: 20px;
-    max-width: 600px;
+    max-width: 100%;
+    width: min(600px, 90vw); /* Ajuste para telas menores */
+    aspect-ratio: 1 / 1; /* Mantém o formato quadrado */
     margin: 20px auto;
 }
 
 .game-cell {
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Mantém as células quadradas automaticamente */
     background: linear-gradient(145deg, #dcd6f7, #a6b1e1);
     border-radius: 5px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     perspective: 500px;
     cursor: pointer;
-    transition: transform 0.5s, background 0.3s;
+    transition: transform 0.3s, background 0.3s;
 }
 
 .game-cell:hover {
-    transform: rotateY(20deg);
+    transform: scale(1.1);
     background: #6a82fb;
 }
 
@@ -98,6 +100,7 @@ nav {
     border-radius: 10px;
     width: 80%;
     max-width: 400px;
+    z-index: 1000;
 }
 
 .hidden {
@@ -114,13 +117,47 @@ nav {
     background: #444;
     border: none;
     padding: 10px;
-    margin: 10px;
+    margin: 10px auto;
     cursor: pointer;
     color: white;
     font-size: 1.1em;
     border-radius: 5px;
+    width: 80%;
 }
 
 .quiz-option:hover {
     background: #6a82fb;
+}
+
+/* Estilos específicos para dispositivos móveis */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .styled-btn {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    .quiz-option {
+        font-size: 1rem;
+        padding: 8px;
+    }
+}
+
+/* Estilos para telas menores que 480px */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .styled-btn {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    .menu-link {
+        font-size: 1rem;
+    }
 }
