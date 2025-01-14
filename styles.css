@@ -15,6 +15,7 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    padding: 20px;
 }
 
 /* Cabeçalho */
@@ -27,37 +28,58 @@ header {
 h1 {
     font-size: 2.5em;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    color: #f1c40f;
+    color: #fc5c7d;
 }
 
 nav {
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .menu-link {
-    color: #f1c40f;
+    display: inline-block;
+    background: linear-gradient(145deg, #6a82fb, #fc5c7d);
+    border: 2px solid #fc5c7d;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    padding: 12px 24px;
+    color: white;
     text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.2em;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.menu-link:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), inset 0 -2px 6px rgba(255, 255, 255, 0.5);
+    background: linear-gradient(145deg, #fc5c7d, #6a82fb);
 }
 
 /* Botões */
 .styled-btn {
-    background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+    background: linear-gradient(145deg, #6a82fb, #fc5c7d);
     color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    border-radius: 10px;
+    border: 2px solid #fc5c7d;
+    padding: 12px 24px;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 15px;
     margin: 20px;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease-in-out;
 }
 
 .styled-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), inset 0 -1px 4px rgba(255, 255, 255, 0.5);
+    background: linear-gradient(145deg, #fc5c7d, #6a82fb);
 }
 
 /* Grid do Jogo */
@@ -67,14 +89,14 @@ nav {
     gap: 10px;
     padding: 20px;
     max-width: 100%;
-    width: min(600px, 90vw); /* Ajuste para telas menores */
-    aspect-ratio: 1 / 1; /* Mantém o formato quadrado */
+    width: min(600px, 90vw);
+    aspect-ratio: 1 / 1;
     margin: 20px auto;
 }
 
 .game-cell {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Mantém as células quadradas automaticamente */
+    aspect-ratio: 1 / 1;
     background: linear-gradient(145deg, #dcd6f7, #a6b1e1);
     border-radius: 5px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
@@ -123,6 +145,7 @@ nav {
     font-size: 1.1em;
     border-radius: 5px;
     width: 80%;
+    transition: background 0.3s ease-in-out;
 }
 
 .quiz-option:hover {
@@ -137,12 +160,21 @@ nav {
 
     .styled-btn {
         font-size: 1rem;
-        padding: 8px 16px;
+        padding: 10px 20px;
+    }
+
+    .menu-link {
+        font-size: 1.1rem;
+        padding: 10px 15px;
     }
 
     .quiz-option {
         font-size: 1rem;
         padding: 8px;
+    }
+
+    .game-grid {
+        grid-template-columns: repeat(8, 1fr);
     }
 }
 
@@ -154,10 +186,38 @@ nav {
 
     .styled-btn {
         font-size: 0.9rem;
-        padding: 6px 12px;
+        padding: 8px 16px;
     }
 
     .menu-link {
         font-size: 1rem;
+        padding: 8px 12px;
+    }
+
+    .quiz-option {
+        font-size: 0.9rem;
+        padding: 6px;
+    }
+
+    .game-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 8px;
+    }
+}
+
+/* Adaptação geral para manter responsividade */
+@media (max-height: 480px) {
+    .menu-link {
+        font-size: 0.9rem;
+        padding: 5px 8px;
+    }
+
+    .styled-btn {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+
+    .quiz-option {
+        font-size: 0.8rem;
     }
 }
