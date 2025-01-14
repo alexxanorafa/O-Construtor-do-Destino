@@ -342,5 +342,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         shuffleQuestions(); // Embaralha as questões antes de mostrar o quiz
         showQuizQuestion();
-    }, 5000); // Exemplo: mostra o quiz após 5 segundos
+    }, 2500); // Exemplo: mostra o quiz após 2,5 segundos
 });
