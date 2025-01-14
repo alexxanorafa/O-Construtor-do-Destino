@@ -259,6 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
             quizModal.classList.add('hidden');  // Fecha o modal do quiz
         }
     }
+    shuffleQuestions();
 
     // Fechar o modal de tarô
     closeTarotBtn.addEventListener('click', () => {
