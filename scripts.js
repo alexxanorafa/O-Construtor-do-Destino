@@ -182,7 +182,61 @@ document.addEventListener('DOMContentLoaded', () => {
     { question: 'O que mais o motiva a agir?', options: ['A paixão pelo que faço', 'O desejo de alcançar algo grande', 'A necessidade de liderança e poder'], correctAnswer: 'A paixão pelo que faço' }, // Cavaleiro de Paus
     { question: 'Como lida com as suas responsabilidades?', options: ['Com coragem e compromisso', 'Com criatividade e inovação', 'Com pragmatismo e eficácia'], correctAnswer: 'Com coragem e compromisso' }, // Rainha de Paus
     { question: 'Quando se depara com uma nova ideia, o que faz?', options: ['Procuro aplicá-la de imediato', 'Exploro as possíveis consequências', 'Avalio o que outros pensam sobre ela'], correctAnswer: 'Procuro aplicá-la de imediato' }, // Rei de Paus
-    
+
+    const quizQuestions = [
+    // Arcanos Maiores - Continuação
+    { question: 'Como lida com as adversidades que surgem na sua vida?', options: ['Com coragem e perseverança', 'Tentando evitá-las ao máximo', 'Buscando conselhos em outros'], correctAnswer: 'Com coragem e perseverança' }, // O Carro
+    { question: 'O que mais valoriza em um parceiro?', options: ['Lealdade e confiança', 'Ambição e motivação', 'Compaixão e compreensão'], correctAnswer: 'Lealdade e confiança' }, // Os Enamorados
+    { question: 'Como prefere enfrentar um obstáculo?', options: ['Com uma atitude pragmática', 'Com uma análise profunda', 'Com uma atitude espontânea'], correctAnswer: 'Com uma análise profunda' }, // O Eremita
+    { question: 'O que mais deseja para o seu futuro?', options: ['Sucesso profissional', 'Estabilidade emocional', 'Liberdade financeira'], correctAnswer: 'Estabilidade emocional' }, // A Imperatriz
+    { question: 'Quando se sente sem direção, o que faz?', options: ['Procuro autoconhecimento', 'Confio na sorte', 'Sigo as orientações de outras pessoas'], correctAnswer: 'Procuro autoconhecimento' }, // O Louco
+    { question: 'Quando precisa de fazer uma escolha difícil, qual é o seu foco?', options: ['Equilibrar os prós e contras', 'Seguir a minha intuição', 'Considerar todas as possibilidades'], correctAnswer: 'Seguir a minha intuição' }, // A Sacerdotisa
+    { question: 'O que faz para encontrar equilíbrio em sua vida?', options: ['Meditação e introspecção', 'Busca por novos desafios', 'Mantém uma rotina fixa e organizada'], correctAnswer: 'Meditação e introspecção' }, // A Temperança
+    { question: 'Quando lida com pessoas difíceis, como se comporta?', options: ['Com diplomacia e empatia', 'Com assertividade', 'Com distanciamento'], correctAnswer: 'Com diplomacia e empatia' }, // A Justiça
+    { question: 'Como reage a mudanças inesperadas?', options: ['Com flexibilidade', 'Com resistência', 'Com adaptação rápida'], correctAnswer: 'Com flexibilidade' }, // A Roda da Fortuna
+    { question: 'Quando está a passar por uma grande transformação, o que sente?', options: ['Alívio e renovação', 'Medo e incerteza', 'Expectativa e ansiedade'], correctAnswer: 'Alívio e renovação' }, // A Morte
+    { question: 'Como lida com a frustração?', options: ['Com paciência e compreensão', 'Com ação imediata para resolver', 'Com uma pausa para refletir'], correctAnswer: 'Com paciência e compreensão' }, // O Enforcado
+    { question: 'Como encara os seus próprios erros?', options: ['Com humildade', 'Com raiva e resistência', 'Com reflexão e aprendizado'], correctAnswer: 'Com humildade' }, // O Julgamento
+    { question: 'O que mais lhe traz paz interior?', options: ['A harmonia emocional', 'A estabilidade financeira', 'A independência pessoal'], correctAnswer: 'A harmonia emocional' }, // O Sol
+    { question: 'Qual é o seu maior desafio atualmente?', options: ['Manter a calma em situações difíceis', 'Encontrar o equilíbrio entre trabalho e vida pessoal', 'Lidar com as expectativas dos outros'], correctAnswer: 'Manter a calma em situações difíceis' }, // A Lua
+    { question: 'Como encara o futuro?', options: ['Com otimismo', 'Com cautela', 'Com medo e insegurança'], correctAnswer: 'Com otimismo' }, // O Mundo
+
+    // Arcanos Menores - Ouros - Continuação
+    { question: 'Como lida com o dinheiro?', options: ['Com cautela e planejamento', 'Com generosidade e confiança', 'Com o desejo de acumular mais'], correctAnswer: 'Com cautela e planejamento' }, // Ás de Ouros
+    { question: 'Quando se vê com dificuldades financeiras, como lida?', options: ['Tento reorganizar meu orçamento', 'Peço ajuda aos outros', 'Fico preocupado e ansioso'], correctAnswer: 'Tento reorganizar meu orçamento' }, // Dois de Ouros
+    { question: 'Quando pensa em suas finanças, o que mais o preocupa?', options: ['Perder minha segurança financeira', 'Não alcançar meus objetivos materiais', 'Viver com conforto'], correctAnswer: 'Perder minha segurança financeira' }, // Três de Ouros
+    { question: 'Quando consegue um grande sucesso financeiro, o que faz?', options: ['Reinveste no meu futuro', 'Desfruto do momento', 'Procuro novas oportunidades'], correctAnswer: 'Reinveste no meu futuro' }, // Quatro de Ouros
+    { question: 'Como lida com a escassez financeira?', options: ['Tento ser o mais cauteloso possível', 'Busco maneiras de aumentar minha renda', 'Procurando cortar despesas ao máximo'], correctAnswer: 'Busco maneiras de aumentar minha renda' }, // Cinco de Ouros
+    { question: 'Como define o seu conceito de riqueza?', options: ['Saber administrar bem os recursos', 'Viver com conforto e liberdade', 'Possuir bens materiais e propriedades'], correctAnswer: 'Viver com conforto e liberdade' }, // Seis de Ouros
+    { question: 'Quando realiza um grande projeto, como se sente?', options: ['Satisfeito e orgulhoso', 'Aliviado por terminar', 'Com uma sensação de dever cumprido'], correctAnswer: 'Satisfeito e orgulhoso' }, // Sete de Ouros
+    { question: 'Como vê a sua estabilidade financeira?', options: ['Como algo que precisa ser constantemente protegido', 'Como um reflexo do meu esforço e trabalho', 'Como algo que sempre posso melhorar'], correctAnswer: 'Como um reflexo do meu esforço e trabalho' }, // Oito de Ouros
+    { question: 'Qual a importância do trabalho em sua vida?', options: ['É uma forma de garantir a minha independência financeira', 'É uma expressão de minha criatividade', 'É uma maneira de contribuir para a sociedade'], correctAnswer: 'É uma forma de garantir a minha independência financeira' }, // Nove de Ouros
+    { question: 'Como lida com a herança ou legado familiar?', options: ['Como algo que precisa ser bem gerido', 'Com respeito e gratidão', 'Com uma responsabilidade que me pesa'], correctAnswer: 'Com respeito e gratidão' }, // Dez de Ouros
+
+    // Arcanos Menores - Espadas - Continuação
+    { question: 'Como reage quando confrontado com uma verdade difícil?', options: ['Com aceitação', 'Com raiva e resistência', 'Com reflexão e compreensão'], correctAnswer: 'Com aceitação' }, // Ás de Espadas
+    { question: 'Quando toma uma decisão importante, o que mais pesa?', options: ['A lógica e os fatos', 'As minhas emoções e intuições', 'O que os outros esperam de mim'], correctAnswer: 'A lógica e os fatos' }, // Dois de Espadas
+    { question: 'Como lida com conflitos mentais internos?', options: ['Com análise crítica', 'Com estratégias de enfrentamento', 'Com paciência para esperar uma solução'], correctAnswer: 'Com análise crítica' }, // Três de Espadas
+    { question: 'Quando se sente mentalmente esgotado, o que faz?', options: ['Tiro um tempo para descansar', 'Procuro uma solução prática para o problema', 'Reflito sobre as lições aprendidas'], correctAnswer: 'Tiro um tempo para descansar' }, // Quatro de Espadas
+    { question: 'Como lida com a desonestidade?', options: ['Com franqueza e transparência', 'Com desconfiança e cautela', 'Com empatia e compreensão'], correctAnswer: 'Com franqueza e transparência' }, // Cinco de Espadas
+    { question: 'Como enfrenta uma situação difícil?', options: ['Com coragem e determinação', 'Com uma análise estratégica', 'Com prudência e cautela'], correctAnswer: 'Com coragem e determinação' }, // Seis de Espadas
+    { question: 'Como reage ao confronto direto?', options: ['Com calma e controle', 'Com resistência e raiva', 'Com reflexão e busca de entendimento'], correctAnswer: 'Com calma e controle' }, // Sete de Espadas
+    { question: 'Quando se sente preso em uma situação, o que faz?', options: ['Procuro uma saída criativa', 'Espero que as coisas melhorem sozinhas', 'Procuro entender a situação antes de agir'], correctAnswer: 'Procuro uma saída criativa' }, // Oito de Espadas
+    { question: 'Como lida com uma perda mental ou emocional?', options: ['Com aceitação e reflexão', 'Com raiva e resistência', 'Com uma vontade de seguir em frente'], correctAnswer: 'Com aceitação e reflexão' }, // Nove de Espadas
+    { question: 'Quando se sente desiludido, o que faz?', options: ['Procuro aprender com a experiência', 'Evito pensar sobre isso', 'Reflito sobre minhas falhas'], correctAnswer: 'Procuro aprender com a experiência' }, // Dez de Espadas
+
+    // Arcanos Menores - Copas - Continuação
+    { question: 'Como lida com seus sentimentos?', options: ['Com equilíbrio e compreensão', 'Com honestidade e transparência', 'Com prudência e reflexão'], correctAnswer: 'Com equilíbrio e compreensão' }, // Ás de Copas
+    { question: 'Quando experimenta novas emoções, como se sente?', options: ['Curioso e aberto', 'Cauteloso e reflexivo', 'Exaltado e envolvido'], correctAnswer: 'Curioso e aberto' }, // Dois de Copas
+    { question: 'Como lida com os altos e baixos emocionais?', options: ['Com resiliência e paciência', 'Com apego à estabilidade', 'Com cautela para não me perder'], correctAnswer: 'Com resiliência e paciência' }, // Três de Copas
+    { question: 'Quando está em um ambiente feliz, como se sente?', options: ['Grato e relaxado', 'Com alegria contagiante', 'Com leveza e liberdade'], correctAnswer: 'Grato e relaxado' }, // Quatro de Copas
+    { question: 'Como reage ao desapontamento emocional?', options: ['Com introspecção e reflexão', 'Com procura por novas conexões', 'Com uma reação impulsiva'], correctAnswer: 'Com introspecção e reflexão' }, // Cinco de Copas
+    { question: 'O que mais valoriza nas relações pessoais?', options: ['Compreensão e apoio mútuo', 'Carinho e afetividade', 'Respeito e espaço pessoal'], correctAnswer: 'Compreensão e apoio mútuo' }, // Seis de Copas
+    { question: 'Como lida com a solidão?', options: ['Com aceitação e autoconhecimento', 'Com uma busca por novas amizades', 'Com reflexão sobre a própria vida'], correctAnswer: 'Com aceitação e autoconhecimento' }, // Sete de Copas
+    { question: 'Quando precisa se distanciar emocionalmente de algo, o que faz?', options: ['Tento manter a calma e a objetividade', 'Procuro uma solução prática', 'Deixo as emoções fluírem'], correctAnswer: 'Tento manter a calma e a objetividade' }, // Oito de Copas
+    { question: 'O que significa para você alcançar a felicidade emocional?', options: ['Viver em harmonia comigo mesmo', 'Ser amado e admirado pelos outros', 'Sentir prazer nas coisas simples'], correctAnswer: 'Viver em harmonia comigo mesmo' }, // Nove de Copas
+    { question: 'Quando encontra a paz emocional, como se sente?', options: ['Grato e em paz comigo mesmo', 'Calmo e pleno', 'Livre de preocupações'], correctAnswer: 'Grato e em paz comigo mesmo' }, // Dez de Copas
+
         // Mais questões podem ser adicionadas aqui
     ];
 
