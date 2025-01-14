@@ -219,7 +219,9 @@ document.addEventListener('DOMContentLoaded', () => {
         tarotCardMeaning.textContent = randomCard.meaning;
         tarotModal.classList.remove('hidden');
     }
-
+        function shuffleQuestions() {
+        quizQuestions.sort(() => Math.random() - 0.5);
+    }
     // Exibe uma pergunta de quiz
     function showQuizQuestion() {
         const question = quizQuestions[currentQuestionIndex];
