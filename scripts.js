@@ -273,11 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tarotCardMeaning.textContent = randomCard.meaning;
         tarotModal.classList.remove('hidden');
     }
-        function shuffleQuestions() {
-        quizQuestions.sort(() => Math.random() - 0.5);
-    }
-    // Exibe uma pergunta de quiz
-    function showQuizQuestion() {
+   function showQuizQuestion() {
         const question = quizQuestions[currentQuestionIndex];
         quizQuestion.textContent = question.question;
         option1.textContent = question.options[0];
@@ -313,8 +309,6 @@ document.addEventListener('DOMContentLoaded', () => {
             quizModal.classList.add('hidden');  // Fecha o modal do quiz
         }
     }
-    shuffleQuestions();
-
     // Fechar o modal de tarô
     closeTarotBtn.addEventListener('click', () => {
         tarotModal.classList.add('hidden');
