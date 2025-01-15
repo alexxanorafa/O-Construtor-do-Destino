@@ -34,64 +34,67 @@ nav {
     margin-top: 10px;
 }
 
+/* Menu */
 .menu {
-    display: flex; /* Usar flexbox para alinhar os itens horizontalmente */
-    justify-content: center; /* Centraliza os itens no eixo horizontal */
-    align-items: center; /* Alinha os itens no centro do eixo vertical */
-    gap: 15px; /* Espaçamento entre os itens */
-    padding: 10px 0; /* Espaçamento superior e inferior para o contêiner */
-    width: 100%; /* Garantir que o container ocupe toda a largura da tela */
-    position: relative; /* Para garantir o controle total da posição do menu */
-  }
-  
-  /* Estilo de cada item do menu */
-  .menu-item {
-    background-color: #ecf0f1; /* Cor original */
-    border-radius: 8px; /* Bordas arredondadas para um toque mais suave */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    width: 100px; /* Largura discreta */
-    height: 40px; /* Altura mais discreta */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+    width: 100%; /* A largura do menu será 100% */
+    position: relative;
+    flex-wrap: wrap; /* Permite que os itens do menu quebrem para a linha seguinte em telas pequenas */
+}
+
+/* Estilo de cada item do menu */
+.menu-item {
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Ajusta a largura e altura do item do menu para flexíveis */
+    flex: 1 1 120px; /* Flex-grow 1, flex-shrink 1, flex-basis 120px */
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: #2c3e50; /* Cor original do texto */
-    font-size: 0.9em; /* Fonte um pouco menor e discreta */
-    font-weight: 500; /* Fonte com peso médio */
-    transition: all 0.3s ease; /* Transições suaves */
-    padding: 0 10px; /* Espaçamento lateral para garantir que o texto não fique colado às bordas */
-    cursor: pointer; /* Deixar o cursor de ponteiro para melhorar a interação */
-    text-align: center; /* Garantir que o texto esteja bem posicionado */
-  }
-  
-  .menu-item:hover {
-    transform: scale(1.05); /* Efeito de hover suave */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave no hover */
-    background-color: #bdc3c7; /* Cor original do hover */
-    color: #fff; /* Mudar a cor do texto para branco no hover */
-  }
-  
-  .menu-item:active {
-    transform: scale(0.98); /* Efeito de clique, para dar um feedback visual */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave no clique */
-  }
-
-/* Botões */
-.styled-btn {
-    background: linear-gradient(135deg, #6a82fb, #fc5c7d);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    border-radius: 10px;
-    margin: 20px;
+    color: #2c3e50;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0 10px;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
 }
 
-.styled-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+/* Para telas médias (tablets e dispositivos maiores) */
+@media (max-width: 768px) {
+    .menu-item {
+        flex-basis: 100px; /* Diminuir a largura do item */
+        font-size: 0.85em; /* Fonte um pouco menor */
+    }
+}
+
+/* Para telas menores que 480px (celulares) */
+@media (max-width: 480px) {
+    .menu-item {
+        flex-basis: 80px; /* Largura ainda menor em telas muito pequenas */
+        font-size: 0.75em; /* Reduzir ainda mais a fonte */
+    }
+
+    .menu {
+        gap: 10px; /* Menos espaçamento entre os itens */
+    }
+    
+    h1 {
+        font-size: 1.6rem; /* Tamanho da fonte do título também reduzido */
+    }
+
+    /* Ajusta o botão para telas pequenas */
+    .styled-btn {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
 }
 
 /* Grid do Jogo */
@@ -161,6 +164,27 @@ nav {
 
 .quiz-option:hover {
     background: #6a82fb;
+}
+
+/* Botões "Iniciar Jogo" e "Fechar Quiz" */
+#start-game-btn, #close-quiz-btn {
+    background-color: #6a82fb;
+    color: white;
+    font-size: 1.2em;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+#start-game-btn:hover, #close-quiz-btn:hover {
+    background-color: #4f69c1;
+}
+
+#start-game-btn:focus, #close-quiz-btn:focus {
+    outline: none;
 }
 
 /* Estilos específicos para dispositivos móveis */
