@@ -41,19 +41,17 @@ nav {
     align-items: center;
     gap: 15px;
     padding: 10px 0;
-    width: 100%; /* A largura do menu será 100% */
+    width: 100%;
     position: relative;
-    flex-wrap: wrap; /* Permite que os itens do menu quebrem para a linha seguinte em telas pequenas */
-}
+    flex-wrap: wrap;
+  }
 
-/* Estilo de cada item do menu */
-.menu-item {
+  .menu-item {
     background-color: #ecf0f1;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Ajusta a largura e altura do item do menu para flexíveis */
-    flex: 1 1 120px; /* Flex-grow 1, flex-shrink 1, flex-basis 120px */
-    height: 50px;
+    width: 120px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,10 +60,16 @@ nav {
     font-size: 0.9em;
     font-weight: 500;
     transition: all 0.3s ease;
-    padding: 0 10px;
     cursor: pointer;
     text-align: center;
-}
+  }
+
+  .menu-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #bdc3c7;
+    color: #fff;
+  }
 
 /* Para telas médias (tablets e dispositivos maiores) */
 @media (max-width: 768px) {
