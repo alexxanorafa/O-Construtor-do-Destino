@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Questões do Quiz
     const quizQuestions = [
-        { question: 'Qual novo começo está preparado para abraçar?', options: ['Uma nova jornada', 'Uma mudança de carreira', 'Explorar um novo relacionamento'], correctAnswer: 'Uma nova jornada' }, // O Louco
+    { question: 'Qual novo começo está preparado para abraçar?', options: ['Uma nova jornada', 'Uma mudança de carreira', 'Explorar um novo relacionamento'], correctAnswer: 'Uma nova jornada' }, // O Louco
     { question: 'Como lida com as dificuldades na sua vida?', options: ['Ação imediata e foco', 'Pondero as opções com calma', 'Deixo que a situação se resolva por si mesma'], correctAnswer: 'Ação imediata e foco' }, // O Mago
     { question: 'Como costuma tomar decisões importantes?', options: ['Utilizo a lógica e sabedoria', 'Confio na intuição', 'Sigo as convenções e normas sociais'], correctAnswer: 'Confio na intuição' }, // A Sacerdotisa
     { question: 'O que mais ressoa consigo neste momento?', options: ['Cuidar dos outros', 'Criar algo novo', 'Buscar conforto e estabilidade'], correctAnswer: 'Criar algo novo' }, // A Imperatriz
