@@ -34,7 +34,7 @@ nav {
     margin-top: 10px;
 }
 
-/* Contêiner do menu */
+/* Estilo do menu */
 .menu {
     display: flex;
     flex-wrap: wrap;
@@ -45,12 +45,7 @@ nav {
     background: transparent; /* Remove o fundo específico */
     box-shadow: transparent; /* Remove o box-shadow */
 }
-.menu:hover {
-    background-color: #ecf0f1; /* Fundo mais escuro no hover */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Realce na sombra */
-}
 
-/* Lista do menu */
 .menu-list {
     list-style: none;
     padding: 0;
@@ -60,37 +55,35 @@ nav {
     flex-wrap: wrap;
     justify-content: center;
 }
-/* Estilo para os itens do menu */
+
 .menu-item {
-    background-color: transparent;;
-    border-radius: 8px;
-    height: 40px;
+    background-color: transparent;
+    border-radius: 4px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     color: #2c3e50;
-    font-size: 0.95em;
-    font-weight: 500;
-    padding: 0 16px;
+    font-size: 0.75em;
+    font-weight: 250;
+    padding: 0 8px;
     cursor: pointer;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px transparent;
     position: relative;
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
-/* Efeito hover no item do menu */
 .menu-item:hover {
     background-color: #97a6b6;
     color: #f8f8f8;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
 }
-
 /* Efeito de foco */
 .menu-item:focus {
     outline: none;
@@ -99,7 +92,6 @@ nav {
     color: #ecf0f1; /* Texto claro */
 }
 
-/* Linha inferior dinâmica */
 .menu-item::after {
     content: '';
     position: absolute;
