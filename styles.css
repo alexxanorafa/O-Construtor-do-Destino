@@ -9,7 +9,7 @@
 body {
     font-family: 'Times New Roman', serif;
     background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-    color: #333;
+    color: #2c3e50;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -27,7 +27,7 @@ header {
 h1 {
     font-size: 2.5em;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    color: #2c3e50;
+    color: #d4b192;
 }
 
 nav {
@@ -79,8 +79,8 @@ nav {
 }
 
 .menu-item:hover {
-    background-color: #97a6b6;
-    color: #f8f8f8;
+    background-color: #2c3e50;
+    color: #d4b192;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
 }
@@ -89,8 +89,8 @@ nav {
 .menu-item:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(52, 73, 94, 0.3); /* Destaque sutil */
-    background-color: #97a6b6; /* Fundo escuro */
-    color: transparent; /* Texto claro */
+    background-color: #d4b192; /* Fundo escuro */
+    color: #d4b192; /* Texto claro */
 }
 
 .menu-item::after {
@@ -148,7 +148,7 @@ nav {
 .game-cell {
     width: 100%;
     aspect-ratio: 1 / 1; /* Mantém as células quadradas automaticamente */
-    background: linear-gradient(145deg, #f5f7fa, #2c3e50);
+    background: linear-gradient(145deg, #d4b192, #2c3e50);
     border-radius: 5px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     perspective: 500px;
@@ -168,7 +168,7 @@ nav {
     left: 50%;
     transform: translate(-50%, -50%);
     background: #2c3e50;
-    color: #a6b1e1;
+    color: whitesmoke;
     padding: 20px;
     border-radius: 10px;
     width: 80%;
@@ -192,14 +192,14 @@ nav {
     padding: 10px;
     margin: 10px auto;
     cursor: pointer;
-    color: whitesmoke;
+    color: #d4b192;
     font-size: 1.1em;
     border-radius: 5px;
     width: 80%;
 }
 
 .quiz-option:hover {
-    background: #6a82fb;
+    background: #f5f7fa;
 }
 
 /* Botões "Iniciar Jogo" e "Fechar Quiz" */
