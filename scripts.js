@@ -239,6 +239,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentQuestionIndex = 0;  // Índice da questão atual
     let shuffledQuestions = [];   // Array para armazenar as questões embaralhadas
+    let correctAnswers = 0; // Contador de respostas corretas
+    let incorrectAnswers = 0; // Contador de respostas incorretas
 
     // Função para embaralhar as perguntas
     function shuffleQuestions() {
@@ -295,6 +297,12 @@ document.addEventListener('DOMContentLoaded', () => {
         option3.onclick = () => handleAnswer(option3.textContent);
 
         quizModal.classList.remove('hidden');
+        
+        // Inicia a ampulheta com duração de 30 segundos
+        createAmpulheta(30, () => {
+            console.log('Tempo da ampulheta acabou!');
+            // Continuar para próxima pergunta após o tempo se esgotar (se necessário)
+        });
     }
 
     // Lida com a resposta ao quiz
@@ -303,10 +311,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Verifica se a resposta está correta
         if (selectedAnswer === question.correctAnswer) {
+            correctAnswers++;
             alert('Resposta correta!');
         } else {
+            incorrectAnswers++;
             alert('Resposta incorreta!');
         }
+
+        // Atualiza o contador de respostas
+        updateAnswerCount();
 
         // Avança para a próxima pergunta
         currentQuestionIndex++;
@@ -314,9 +327,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentQuestionIndex < shuffledQuestions.length) {
             setTimeout(showQuizQuestion, 1000);  // Aguarda 1 segundo antes de mostrar a próxima pergunta
         } else {
-            alert('Você terminou o quiz!');
+            alert(`Você terminou o quiz! Respostas corretas: ${correctAnswers}, Respostas incorretas: ${incorrectAnswers}`);
             quizModal.classList.add('hidden');  // Fecha o modal do quiz
         }
+    }
+
+    // Função para atualizar o contador de respostas
+    function updateAnswerCount() {
+        const answerCount = document.getElementById('answer-count');
+        answerCount.textContent = `Corretas: ${correctAnswers} | Incorretas: ${incorrectAnswers}`;
     }
 
     // Fechar o modal de tarô
@@ -343,4 +362,33 @@ document.addEventListener('DOMContentLoaded', () => {
         shuffleQuestions(); // Embaralha as questões antes de mostrar o quiz
         showQuizQuestion();
     }, 2500); // Exemplo: mostra o quiz após 2,5 segundos
+
+    // Função para criar e gerenciar uma ampulheta dinâmica
+    function createAmpulheta(durationInSeconds, onComplete) {
+        const ampulhetaContainer = document.createElement('div');
+        ampulhetaContainer.classList.add('ampulheta-container');
+
+        const ampulheta = document.createElement('div');
+        ampulheta.classList.add('ampulheta');
+
+        const sand = document.createElement('div');
+        sand.classList.add('sand');
+
+        ampulheta.appendChild(sand);
+        ampulhetaContainer.appendChild(ampulheta);
+
+        // Insere a ampulheta no DOM (pode ser ajustada conforme necessário)
+        quizModal.appendChild(ampulhetaContainer);
+
+        // Animação de contagem regressiva
+        sand.style.animation = `sand-fall ${durationInSeconds}s linear`;
+
+        // Remove a ampulheta e executa a função de callback ao terminar
+        setTimeout(() => {
+            ampulhetaContainer.remove();
+            if (typeof onComplete === 'function') {
+                onComplete();
+            }
+        }, durationInSeconds * 1000);
+    }
 });
