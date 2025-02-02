@@ -283,63 +283,76 @@ document.addEventListener('DOMContentLoaded', () => {
         tarotModal.classList.remove('hidden');
     }
 
-    // Exibe uma pergunta de quiz
-    function showQuizQuestion() {
-        const question = shuffledQuestions[currentQuestionIndex];
-        quizQuestion.textContent = question.question;
-        option1.textContent = question.options[0];
-        option2.textContent = question.options[1];
-        option3.textContent = question.options[2];
+// Exibe uma pergunta de quiz
+function showQuizQuestion() {
+    // Resetar estados antes de mostrar nova pergunta
+    const options = [option1, option2, option3];
 
-        option1.style.backgroundColor = '';
-        option2.style.backgroundColor = '';
-        option3.style.backgroundColor = '';
+    options.forEach(option => {
+        option.classList.remove('active');  // Remove a classe de seleção (se houver)
+        option.style.transform = 'scale(1)';
+        option.style.backgroundColor = '';  // Reseta cor para padrão
+        option.blur();  // Remove foco visual no Android
+    });
 
-        // Adiciona os eventos de clique para as opções
-        option1.onclick = () => handleAnswer(option1.textContent);
-        option2.onclick = () => handleAnswer(option2.textContent);
-        option3.onclick = () => handleAnswer(option3.textContent);
+            // Atualizar o texto da questão e opções
+            const question = shuffledQuestions[currentQuestionIndex];
+            quizQuestion.textContent = question.question;
+            option1.textContent = question.options[0];
+            option2.textContent = question.options[1];
+            option3.textContent = question.options[2];
 
-        quizModal.classList.remove('hidden');
+            // Adicionar eventos de clique para cada opção
+            option1.onclick = () => handleAnswer(option1);
+            option2.onclick = () => handleAnswer(option2);
+            option3.onclick = () => handleAnswer(option3);
+
+            // Exibir modal
+            quizModal.classList.remove('hidden');
+
+            // Criar ampulheta de 30 segundos
+            createAmpulheta(30, () => {
+                console.log('Tempo da ampulheta acabou!');
+            });
+        }
+
+        function handleAnswer(selectedOption) {
+            const question = shuffledQuestions[currentQuestionIndex];
         
-        // Inicia a ampulheta com duração de 30 segundos
-        createAmpulheta(30, () => {
-            console.log('Tempo da ampulheta acabou!');
-            // Continuar para próxima pergunta após o tempo se esgotar (se necessário)
-        });
-    }
-
-    // Lida com a resposta ao quiz
-    function handleAnswer(selectedAnswer) {
-        const question = shuffledQuestions[currentQuestionIndex];
-
-                // Remover o foco dos botões
-        option1.blur();
-        option2.blur();
-        option3.blur();
-
-        // Verifica se a resposta está correta
-        if (selectedAnswer === question.correctAnswer) {
-            correctAnswers++;
-            alert('Resposta correta!');
-        } else {
-            incorrectAnswers++;
-            alert('Resposta incorreta!');
-        }
-
-        // Atualiza o contador de respostas
-        updateAnswerCount();
-
-        // Avança para a próxima pergunta
-        currentQuestionIndex++;
-
-        if (currentQuestionIndex < shuffledQuestions.length) {
-            setTimeout(showQuizQuestion, 1000);  // Aguarda 1 segundo antes de mostrar a próxima pergunta
-        } else {
-            alert(`Você terminou o quiz! Respostas corretas: ${correctAnswers}, Respostas incorretas: ${incorrectAnswers}`);
-            quizModal.classList.add('hidden');  // Fecha o modal do quiz
-        }
-    }
+            // Resetar todas as opções antes de destacar a escolhida
+            const options = [option1, option2, option3];
+            options.forEach(option => {
+                option.classList.remove('active');
+                option.style.transform = 'scale(1)';
+                option.style.backgroundColor = '';
+            });
+        
+            // Destacar a opção escolhida
+            selectedOption.classList.add('active');
+            selectedOption.style.backgroundColor = '#4CAF50'; // Cor para correta (verde)
+        
+            // Verificar se a resposta está correta
+            if (selectedOption.textContent.trim() === question.correctAnswer.trim()) {
+                correctAnswers++;
+                alert('Resposta correta!');
+            } else {
+                incorrectAnswers++;
+                alert('Resposta incorreta!');
+            }
+        
+            // Atualizar contador de respostas
+            updateAnswerCount();
+        
+            // Avançar para a próxima pergunta
+            currentQuestionIndex++;
+        
+            if (currentQuestionIndex < shuffledQuestions.length) {
+                setTimeout(showQuizQuestion, 1000);  // Espera 1s antes de mostrar a próxima pergunta
+            } else {
+                alert(`Você terminou o quiz! Respostas corretas: ${correctAnswers}, Respostas incorretas: ${incorrectAnswers}`);
+                quizModal.classList.add('hidden');
+            }
+        }        
 
     // Função para atualizar o contador de respostas
     function updateAnswerCount() {
