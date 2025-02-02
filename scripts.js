@@ -291,6 +291,10 @@ document.addEventListener('DOMContentLoaded', () => {
         option2.textContent = question.options[1];
         option3.textContent = question.options[2];
 
+        option1.style.backgroundColor = '';
+        option2.style.backgroundColor = '';
+        option3.style.backgroundColor = '';
+
         // Adiciona os eventos de clique para as opções
         option1.onclick = () => handleAnswer(option1.textContent);
         option2.onclick = () => handleAnswer(option2.textContent);
@@ -308,6 +312,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lida com a resposta ao quiz
     function handleAnswer(selectedAnswer) {
         const question = shuffledQuestions[currentQuestionIndex];
+
+                // Remover o foco dos botões
+        option1.blur();
+        option2.blur();
+        option3.blur();
 
         // Verifica se a resposta está correta
         if (selectedAnswer === question.correctAnswer) {
